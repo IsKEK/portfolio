@@ -2,6 +2,7 @@ import { AppBar, Toolbar, Container, Typography, Box, IconButton, Menu, MenuItem
 import MenuIcon from '@mui/icons-material/Menu';
 import AdbIcon from '@mui/icons-material/Adb';
 import React, { useState, MouseEvent } from 'react'
+import styled from 'styled-components';
 
 function Navbar() {
     const [anchorElNav, setAnchorElNav] = useState<null | HTMLElement>(null);
@@ -16,7 +17,7 @@ function Navbar() {
     }
 
     return (
-        <AppBar position="static">
+    <AppBar position="relative" sx={{ backgroundColor: 'var(--pink)' }}>
       <Container maxWidth="xl">
         <Toolbar disableGutters>
           <AdbIcon sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 }} />

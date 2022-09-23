@@ -1,26 +1,22 @@
 import React from 'react';
 import './App.css';
 import Navbar from './components/Navbar';
+import Home from './components/body/Home';
 
 function App() {
   return (
-    <div>
-      <header>
-        <Navbar/>
-        {/* <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p> */}
-        {/* <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a> */}
-      </header>
-    </div>
+    <body>
+      <Home />
+    </body>
   );
 }
+
+// const AppBody = styled.body`
+//   &::-webkit-scrollbar {
+//     display: none;
+//   }
+//   -ms-overflow-style: none;
+//   scrollbar-width: none; 
+// `;
 
 export default App;
