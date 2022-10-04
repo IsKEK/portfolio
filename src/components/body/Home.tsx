@@ -7,7 +7,7 @@ import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
 
 function Home() {
   return (
-    <Section>
+    <Section id='home'>
         <HomeSection>
             <HomeText>
                 Hello! I am <span style={{ color: 'var(--pink)' }}>Iskak Toltay</span>.
@@ -17,7 +17,7 @@ function Home() {
             <br/>
             <br/>
             <Button endIcon={<ArrowForwardIcon />} sx={{ border: '1px solid white', backgroundColor: 'var(--pink)', color: 'white' }}>
-                View my work
+                <a style={{ textDecoration: 'none', color: 'white' }} href='#about'>View my work</a>
             </Button>
         </HomeSection>
     </Section>
@@ -32,7 +32,7 @@ const HomeSection = styled.div`
     background-color: black;
 `;
 
-const HomeText = styled.text`
+const HomeText = styled.div`
     font-weight: 200;
     font-size: 50px;
     color: white;
