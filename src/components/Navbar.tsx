@@ -17,7 +17,7 @@ function Navbar() {
     }
 
     return (
-    <AppBar position="relative" sx={{ backgroundColor: 'var(--pink)' }}>
+    <AppBar position="fixed" sx={{ backgroundColor: 'var(--light-black)' }}>
       <Container maxWidth="xl">
         <Toolbar disableGutters>
           {/* <AdbIcon sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 }} /> */}
@@ -68,12 +68,12 @@ function Navbar() {
             >
               <MenuItem key="home" onClick={handleCloseNavMenu}>
                   {/* <Typography textAlign="center">"home"</Typography> */}
-                  <WavyLink to={`/`}>Home</WavyLink>
+                  <WavyLink to={`/`} color="var(--pink)">Home</WavyLink>
                 </MenuItem>
               {sections.map((section) => (
                 <MenuItem key={section} onClick={handleCloseNavMenu}>
                   {/* <Typography textAlign="center">{section}</Typography> */}
-                  <WavyLink to={`/${section.toLowerCase()}`}>{section}</WavyLink>
+                  <WavyLink to={`/${section.toLowerCase()}`} color="var(--pink)">{section}</WavyLink>
                 </MenuItem>
               ))}
             </Menu>
@@ -101,7 +101,7 @@ function Navbar() {
                 onClick={handleCloseNavMenu}
                 sx={{ my: 2, color: 'white', display: 'block' }}
               >
-                <WavyLink to={`/`}>Home</WavyLink>
+                <WavyLink to={`/`} color="var(--pink)">Home</WavyLink>
               </Button>
             {sections.map((section) => (
               <Button
@@ -109,7 +109,7 @@ function Navbar() {
                 onClick={handleCloseNavMenu}
                 sx={{ my: 2, color: 'white', display: 'block' }}
               >
-                <WavyLink to={`/${section.toLowerCase()}`}>{section}</WavyLink>
+                <WavyLink to={`/${section.toLowerCase()}`} color="var(--pink)">{section}</WavyLink>
               </Button>
             ))}
           </Box>

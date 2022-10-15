@@ -2,52 +2,71 @@ import React from 'react'
 import Section from '../shared/Section'
 import Navbar from '../Navbar';
 import styled, { keyframes } from 'styled-components';
+import profileImage from '../../img/me.png';
 
 function About() {
   return (
-    <Section id='about' backgroundColor='white' paddingTop='20px'>
-      <Skills>
-        <SkillBar>
-          <SkillTitle><span>HTML</span></SkillTitle>
-          <ProgressLine className='html'><BarContent></BarContent></ProgressLine>
-        </SkillBar>
-        <SkillBar>
-          <SkillTitle><span>CSS</span></SkillTitle>
-          <ProgressLine className='css'><BarContent></BarContent></ProgressLine>
-        </SkillBar>
-        <SkillBar>
-          <SkillTitle><span>JavaScript</span></SkillTitle>
-          <ProgressLine className='js'><BarContent></BarContent></ProgressLine>
-        </SkillBar>
-        <SkillBar>
-          <SkillTitle><span>React.js</span></SkillTitle>
-          <ProgressLine className='react'><BarContent></BarContent></ProgressLine>
-        </SkillBar>
-        <SkillBar>
-          <SkillTitle><span>C#</span></SkillTitle>
-          <ProgressLine className='cs'><BarContent></BarContent></ProgressLine>
-        </SkillBar>
-        <SkillBar>
-          <SkillTitle><span>Java</span></SkillTitle>
-          <ProgressLine className='java'><BarContent></BarContent></ProgressLine>
-        </SkillBar>
-        <SkillBar>
-          <SkillTitle><span>Python</span></SkillTitle>
-          <ProgressLine className='python'><BarContent></BarContent></ProgressLine>
-        </SkillBar>
-        <SkillBar>
-          <SkillTitle><span>SQL</span></SkillTitle>
-          <ProgressLine className='sql'><BarContent></BarContent></ProgressLine>
-        </SkillBar>
-        <SkillBar>
-          <SkillTitle><span>MongoDB</span></SkillTitle>
-          <ProgressLine className='mongo'><BarContent></BarContent></ProgressLine>
-        </SkillBar>
-        <SkillBar>
-          <SkillTitle><span>AWS</span></SkillTitle>
-          <ProgressLine className='aws'><BarContent></BarContent></ProgressLine>
-        </SkillBar>
-      </Skills>
+    <Section id='about'>
+      <AboutContent>
+        <AboutMe>
+          <h1>ABOUT ME</h1>
+          <ProfileImage src={profileImage} alt="photo of me" />
+          <Description>
+            I am a Full-Stack developer from Almaty, Kazakhstan.<br/>
+            It is my passion to create innovative software that benefits the society! 
+          </Description>
+          <Qualities>
+            <h3>I am:</h3>
+            <QualitiesList>
+              <li>Responsible</li>
+              <li>Cool</li>
+            </QualitiesList>
+          </Qualities>
+        </AboutMe>
+        <Skills>
+          <h1 style={{color: "var(--light-black)"}}>MY SKILLS</h1>
+          <SkillBar>
+            <SkillTitle><span>HTML</span></SkillTitle>
+            <ProgressLine className='html'><BarContent></BarContent></ProgressLine>
+          </SkillBar>
+          <SkillBar>
+            <SkillTitle><span>CSS</span></SkillTitle>
+            <ProgressLine className='css'><BarContent></BarContent></ProgressLine>
+          </SkillBar>
+          <SkillBar>
+            <SkillTitle><span>JavaScript</span></SkillTitle>
+            <ProgressLine className='js'><BarContent></BarContent></ProgressLine>
+          </SkillBar>
+          <SkillBar>
+            <SkillTitle><span>React.js</span></SkillTitle>
+            <ProgressLine className='react'><BarContent></BarContent></ProgressLine>
+          </SkillBar>
+          <SkillBar>
+            <SkillTitle><span>C#</span></SkillTitle>
+            <ProgressLine className='cs'><BarContent></BarContent></ProgressLine>
+          </SkillBar>
+          <SkillBar>
+            <SkillTitle><span>Java</span></SkillTitle>
+            <ProgressLine className='java'><BarContent></BarContent></ProgressLine>
+          </SkillBar>
+          <SkillBar>
+            <SkillTitle><span>Python</span></SkillTitle>
+            <ProgressLine className='python'><BarContent></BarContent></ProgressLine>
+          </SkillBar>
+          <SkillBar>
+            <SkillTitle><span>SQL</span></SkillTitle>
+            <ProgressLine className='sql'><BarContent></BarContent></ProgressLine>
+          </SkillBar>
+          <SkillBar>
+            <SkillTitle><span>MongoDB</span></SkillTitle>
+            <ProgressLine className='mongo'><BarContent></BarContent></ProgressLine>
+          </SkillBar>
+          <SkillBar>
+            <SkillTitle><span>AWS</span></SkillTitle>
+            <ProgressLine className='aws'><BarContent></BarContent></ProgressLine>
+          </SkillBar>
+        </Skills>
+      </AboutContent>
     </Section>
   )
 }
@@ -64,17 +83,54 @@ const textAnimation = keyframes`
   }
 `;
 
+const AboutContent = styled.div`
+  height: 200%;
+  width: 100%;
+  text-align: center; 
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  padding-top: 20px;
+  background-image: linear-gradient(var(--light-blue), var(--pink), var(--purple));
+`;
+
+const AboutMe = styled.div`
+  margin-top: 100px;
+`;
+
+const ProfileImage = styled.img`
+  width: 200px;
+  height: 200px;
+  padding-top: 20px;
+  object-fit: contain;
+`;
+
+const Description = styled.div`
+  font-size: large;
+  padding-top: 10px;
+`;
+
+const Qualities = styled.div`
+
+`;
+
+const QualitiesList = styled.ul`
+  list-style-type: none;
+`;
+
 const Skills = styled.div`
-  margin-left: 50px;
+  position: relative;
+  margin: 25px 0px;
   padding: 10px 50px;
-  width: 90%;
-  background: #fff;
-  box-shadow: 5px 5px 20px rgba(0,0,0,0.2);
+  width: 70%;
+  background: var(--white);
+  box-shadow: 5px 5px 20px rgba(0,0,0,0.7);
   border-radius: 10px;
-  margin-bottom: 100px;
   border: 4px 4px black;
-  height: 100%;
-  place-items: center;
+  height: fit-content;
+  // place-items: center;
 
   .html span {
     width: 84%;
@@ -165,7 +221,7 @@ const SkillBar = styled.div`
 `;
 
 const SkillTitle = styled.div`
-  margin-bottom: 5px;
+  // margin-bottom: 1px;
   
   span {
     font-weight: 500;
@@ -176,9 +232,9 @@ const SkillTitle = styled.div`
 `;
 
 const ProgressLine = styled.div`
-  height: 10px;
+  height: 5px;
   width: 100%;
-  background: #f0f0f0;
+  background: lightgrey;
   position: relative;
   transform: scaleX(0);
   transform-origin: left;
@@ -194,7 +250,7 @@ const BarContent = styled.span`
   border-radius: 10px;
   transform: scaleX(0);
   transform-origin: left;
-  background: var(--pink);
+  background: var(--dark-pink);
   animation: ${barAnimation} 1s 1s cubic-bezier(1,0,0.5,1) forwards;
 
   &:before {
