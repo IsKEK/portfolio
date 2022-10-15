@@ -5,12 +5,14 @@ interface ISectionProps {
     id: string;
     title?: string;
     children: ReactNode;
+    backgroundColor: string;
+    paddingTop: string;
 }
 
 function Section(props: ISectionProps) {
   return (
     <AppSection id={props.id}>
-        {props.children}
+      <SectionContent backgroundColor={props.backgroundColor} paddingTop={props.paddingTop}>{props.children}</SectionContent>
     </AppSection>
   )
 }
@@ -22,6 +24,14 @@ const AppSection = styled.section`
   display: flex;
   flex-direction: column;
   justify-content: center;
+`;
+
+const SectionContent = styled.div <{ backgroundColor: string, paddingTop: string }>`
+  height: 100%;
+  width: 100%;
+  text-align: center; 
+  padding-top: ${props => props.paddingTop ? `${props.paddingTop}` : '0px'};
+  background-color: ${props => props.backgroundColor ? `${props.backgroundColor}` : 'white'};
 `;
 
 const Title = styled.div`

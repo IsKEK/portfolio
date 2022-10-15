@@ -2,14 +2,26 @@ import React from 'react';
 import './App.css';
 import Navbar from './components/Navbar';
 import { Home, About } from './components/body';
+import { BrowserRouter, Route, Routes, Outlet } from 'react-router-dom';
+import { WavyContainer } from 'react-wavy-transitions';
+
+const Main = () => <main><Outlet /></main>
 
 function App() {
   return (
-    <body>
-      <Home />
-      <Navbar />
-      <About />
-    </body>
+    <BrowserRouter>
+      <WavyContainer />
+        <Routes>
+          <Route
+            path="/"
+            element={<Main />}
+          >
+            <Route index element={<Home />} />
+            <Route path="nav" element={<Navbar />} />
+            <Route path="about" element={<><Navbar /><About /></>} />
+          </Route>
+        </Routes>
+    </BrowserRouter>
   );
 }
 
