@@ -8,8 +8,8 @@ function About() {
   return (
     <Section id='about'>
       <AboutContent>
-        <AboutMe>
-          <h1>ABOUT ME</h1>
+        <AboutMe>  
+          <Title>ABOUT ME</Title>
           <ProfileImage src={profileImage} alt="photo of me" />
           <Description>
             I am a Full-Stack developer from Almaty, Kazakhstan.<br/>
@@ -84,7 +84,7 @@ const textAnimation = keyframes`
 `;
 
 const AboutContent = styled.div`
-  height: 200%;
+  height: 100%;
   width: 100%;
   text-align: center; 
   display: flex;
@@ -92,11 +92,24 @@ const AboutContent = styled.div`
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
-  padding-top: 20px;
   background-image: linear-gradient(var(--light-blue), var(--pink), var(--purple));
+  overflow-y: auto;
+  overflow-x: hidden;
+
+  // & > * {
+  //   margin: 0 25px;
+  // }
+`;
+
+const Title = styled.h1`
+  position: relative;
+  border-bottom: 2px solid var(--light-black);
+  width: 27%;
+  margin-left: 182px;
 `;
 
 const AboutMe = styled.div`
+  position: relative;
   margin-top: 100px;
 `;
 
@@ -124,7 +137,7 @@ const Skills = styled.div`
   position: relative;
   margin: 25px 0px;
   padding: 10px 50px;
-  width: 70%;
+  width: 80%;
   background: var(--white);
   box-shadow: 5px 5px 20px rgba(0,0,0,0.7);
   border-radius: 10px;

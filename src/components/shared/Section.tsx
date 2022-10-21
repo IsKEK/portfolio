@@ -24,6 +24,7 @@ const AppSection = styled.section`
   display: flex;
   flex-direction: column;
   justify-content: center;
+  overflow-y: auto;
 `;
 
 // const SectionContent = styled.div <{ backgroundColor: string, paddingTop: string }>`
