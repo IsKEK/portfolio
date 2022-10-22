@@ -105,7 +105,7 @@ const Title = styled.h1`
   position: relative;
   border-bottom: 2px solid var(--light-black);
   width: 27%;
-  margin-left: 182px;
+  margin-left: 204px;
 `;
 
 const AboutMe = styled.div`

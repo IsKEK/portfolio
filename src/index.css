@@ -6,6 +6,7 @@
   --light-black: #1f1f1f;
   --white: #fefefe;
   --grey: #939192;
+  --light-grey: #d8d8d8;
   --light-blue: #73bfe2;
 }
 
@@ -17,7 +18,7 @@
 
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Noto' 'Segoe UI', 'Roboto', 'Oxygen',
+  font-family: -apple-system, BlinkMacSystemFont, "Tahoma", "Arial", 'Noto', 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
   -webkit-font-smoothing: antialiased;

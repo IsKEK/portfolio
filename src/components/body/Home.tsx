@@ -16,7 +16,7 @@ function Home() {
         </HomeText>
         <br/>
         <br/>
-        <Button endIcon={<ArrowForwardIcon />} sx={{ border: '1px solid white', backgroundColor: 'var(--dark-pink)', color: 'white' }}>
+        <Button endIcon={<ArrowForwardIcon />} sx={{ height: '6vh', width: '15vh', border: '1px solid white', backgroundColor: 'var(--dark-pink)', color: 'white' }}>
             <WavyLink to='/about' color="var(--pink)">View my work</WavyLink>
         </Button>
       </HomeContent>
@@ -34,7 +34,7 @@ const HomeContent = styled.div`
 
 const HomeText = styled.div`
     font-weight: 200;
-    font-size: 50px;
+    font-size: 8vh;
     color: white;
 `;
 
