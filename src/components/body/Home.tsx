@@ -16,8 +16,8 @@ function Home() {
         </HomeText>
         <br/>
         <br/>
-        <Button endIcon={<ArrowForwardIcon />} sx={{ height: '6vh', width: '15vh', border: '1px solid white', backgroundColor: 'var(--dark-pink)', color: 'white' }}>
-            <WavyLink to='/about' color="var(--pink)">View my work</WavyLink>
+        <Button endIcon={<ArrowForwardIcon />} sx={{ position: 'relative', height: '50px', width: '150px', fontSize: '13px', border: '1px solid white', backgroundColor: 'var(--dark-pink)', color: 'white' }}>
+          <WavyLink to='/about' color="var(--pink)">More about me</WavyLink>
         </Button>
       </HomeContent>
     </Section>
