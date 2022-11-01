@@ -1,11 +1,11 @@
 import { Button } from '@mui/material';
 import React from 'react'
 import styled from 'styled-components';
-import Section from '../shared/Section';
+import { Section } from '../shared/Section';
 import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
 import { WavyLink } from 'react-wavy-transitions';
 
-function Home() {
+const Home = () => {
   return (
     <Section id='home'>
       <HomeContent>

@@ -39,4 +39,5 @@ const Title = styled.div`
     display: inline;
 `;
 
-export default Section;
+export default { Section };
+export { Section };

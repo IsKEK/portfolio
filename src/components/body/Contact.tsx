@@ -1,12 +1,12 @@
 import React, { useRef } from 'react'
 import styled from 'styled-components';
-import Section from '../shared/Section';
+import { Section } from '../shared/Section';
 import { AnimatedSocialIcon } from 'react-animated-social-icons';
 import emailjs from '@emailjs/browser';
 import { Button } from '@mui/material';
 import SendIcon from '@mui/icons-material/Send';
 
-function Contact() {
+const Contact = () => {
   const form = useRef();
 
   const sendEmail = (e: any) => {
@@ -42,7 +42,7 @@ function Contact() {
             <a href="">
               <AnimatedSocialIcon
                 brandName="instagram"
-                url=""
+                url="https://www.instagram.com/iskaktoltay/"
                 animation="float"
                 defaultColor="black"
                 hoverColor="var(--dark-pink)"

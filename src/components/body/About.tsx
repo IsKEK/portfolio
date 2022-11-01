@@ -1,10 +1,10 @@
 import React from 'react'
-import Section from '../shared/Section'
+import { Section } from '../shared/Section'
 import Navbar from '../Navbar';
 import styled, { keyframes } from 'styled-components';
 import profileImage from '../../img/me.png';
 
-function About() {
+const About = () => {
   return (
     <Section id='about'>
       <AboutContent>

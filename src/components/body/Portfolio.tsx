@@ -3,7 +3,7 @@ import { Button } from '@mui/material';
 import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
 import { WavyLink } from 'react-wavy-transitions';
 import styled, { keyframes } from 'styled-components';
-import Section from '../shared/Section';
+import { Section } from '../shared/Section';
 import galeneoLogo from '../../img/galeneo.png';
 import lancasterLogo from '../../img/lancaster.jpg';
 import enactusLogo from '../../img/enactus.png';
@@ -66,7 +66,7 @@ const Portfolio = () => {
                 Teaching assistant and ITPI Full-Stack developer
               </CardDescription>
               <Button endIcon={<ArrowForwardIcon />} sx={{ position: 'relative', border: '1px solid var(--light-black)', backgroundColor: 'var(--dark-pink)', color: 'white' }}>
-                <WavyLink to='/about' color="var(--pink)">Learn more</WavyLink>
+                <WavyLink to='/lancaster' color="var(--pink)">Learn more</WavyLink>
               </Button>
             </CardContent>
           </Card>
@@ -77,7 +77,7 @@ const Portfolio = () => {
                 Full-Stack Developer For Enactus
               </CardDescription>
               <Button endIcon={<ArrowForwardIcon />} sx={{ position: 'relative', border: '1px solid var(--light-black)', backgroundColor: 'var(--dark-pink)', color: 'white' }}>
-                <WavyLink to='/about' color="var(--pink)">Learn more</WavyLink>
+                <WavyLink to='/enactus' color="var(--pink)">Learn more</WavyLink>
               </Button>
             </CardContent>
           </Card>
@@ -94,7 +94,7 @@ const Portfolio = () => {
                 Full-Stack Developer For Galeneo
               </CardDescription>
               <Button endIcon={<ArrowForwardIcon />} sx={{ position: 'relative', border: '1px solid var(--light-black)', backgroundColor: 'var(--dark-pink)', color: 'white' }}>
-                <WavyLink to='/about' color="var(--pink)">Learn more</WavyLink>
+                <WavyLink to='/galeneo' color="var(--pink)">Learn more</WavyLink>
               </Button>
             </CardContent>
           </Card>
@@ -105,7 +105,7 @@ const Portfolio = () => {
                 Full-Stack Developer For Enactus
               </CardDescription>
               <Button endIcon={<ArrowForwardIcon />} sx={{ position: 'relative', border: '1px solid var(--light-black)', backgroundColor: 'var(--dark-pink)', color: 'white' }}>
-                <WavyLink to='/about' color="var(--pink)">Learn more</WavyLink>
+                <WavyLink to='/enactus' color="var(--pink)">Learn more</WavyLink>
               </Button>
             </CardContent>
           </Card>
@@ -122,7 +122,7 @@ const Portfolio = () => {
                 Teaching assistant and ITPI Full-Stack developer
               </CardDescription>
               <Button endIcon={<ArrowForwardIcon />} sx={{ position: 'relative', border: '1px solid var(--light-black)', backgroundColor: 'var(--dark-pink)', color: 'white' }}>
-                <WavyLink to='/about' color="var(--pink)">Learn more</WavyLink>
+                <WavyLink to='/lancaster' color="var(--pink)">Learn more</WavyLink>
               </Button>
             </CardContent>
           </Card>
@@ -133,7 +133,7 @@ const Portfolio = () => {
                 Full-Stack Developer For Enactus
               </CardDescription>
               <Button endIcon={<ArrowForwardIcon />} sx={{ position: 'relative', border: '1px solid var(--light-black)', backgroundColor: 'var(--dark-pink)', color: 'white' }}>
-                <WavyLink to='/about' color="var(--pink)">Learn more</WavyLink>
+                <WavyLink to='/enactus' color="var(--pink)">Learn more</WavyLink>
               </Button>
             </CardContent>
           </Card>
@@ -144,7 +144,7 @@ const Portfolio = () => {
                 Full-Stack Developer For Galeneo
               </CardDescription>
               <Button endIcon={<ArrowForwardIcon />} sx={{ position: 'relative', border: '1px solid var(--light-black)', backgroundColor: 'var(--dark-pink)', color: 'white' }}>
-                <WavyLink to='/about' color="var(--pink)">Learn more</WavyLink>
+                <WavyLink to='/galeneo' color="var(--pink)">Learn more</WavyLink>
               </Button>
             </CardContent>
           </Card>
