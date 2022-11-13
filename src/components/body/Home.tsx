@@ -14,11 +14,14 @@ const Home = () => {
             <br/>
             I am a full-stack web developer.
         </HomeText>
-        <br/>
-        <br/>
-        <Button endIcon={<ArrowForwardIcon />} sx={{ position: 'relative', height: '50px', width: '150px', fontSize: '13px', border: '1px solid white', backgroundColor: 'var(--dark-pink)', color: 'white' }}>
-          <WavyLink to='/about' color="var(--pink)">More about me</WavyLink>
-        </Button>
+        <WavyLink to='/about' color="var(--pink)">
+          <Button 
+            sx={{ position: 'relative', height: 'calc(50px + 1vw)', width: 'calc(150px + 3vw)', fontSize: 'calc(12px + 0.2vw)', border: '1px solid white', backgroundColor: 'var(--dark-pink)', color: 'white' }}
+            endIcon={<ArrowForwardIcon style={{width: '2.5vh', height: '2vh', minWidth: '20px', minHeight: '20px', display: 'flex'}} />}
+          >
+            More about me
+          </Button>
+        </WavyLink>
       </HomeContent>
     </Section>
   )
@@ -28,14 +31,18 @@ const HomeContent = styled.div`
   height: 100%;
   width: 100%;
   text-align: center; 
-  padding-top: 20%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
   background-color: var(--light-black);
+  overflow-y: hidden;
 `;
 
 const HomeText = styled.div`
-    font-weight: 200;
-    font-size: 8vh;
-    color: white;
+  font-weight: 200;
+  font-size: calc(12px + 3vw);
+  color: white;
+  margin-bottom: 5vh;
 `;
 
 export default { Home };

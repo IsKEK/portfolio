@@ -17,12 +17,6 @@ const Portfolio = () => {
     filterPortfolio();
   }, [filter])
 
-  // useEffect(() => {
-  //   setTimeout(() => {
-  //     filterPortfolio();
-  //   }, 20000);
-  // }, [hover])
-
   const handleButtonFilter = (e: any) => {
     setFilter(e.target.id);
   }
@@ -65,9 +59,21 @@ const Portfolio = () => {
               <CardDescription>
                 Teaching assistant and ITPI Full-Stack developer
               </CardDescription>
-              <Button endIcon={<ArrowForwardIcon />} sx={{ position: 'relative', border: '1px solid var(--light-black)', backgroundColor: 'var(--dark-pink)', color: 'white' }}>
-                <WavyLink to='/lancaster' color="var(--pink)">Learn more</WavyLink>
-              </Button>
+              <WavyLink to='/lancaster' color="var(--pink)">
+                <Button 
+                  endIcon={<ArrowForwardIcon style={{ width: 'calc(5px + 1vw)', height: 'calc(5px + 2vh)' }}/>}
+                  sx={{
+                    width: 'calc(50px + 7vw)',
+                    height: 'calc(20px + 4vh)',
+                    fontSize: 'calc(4px + 0.5vw)',
+                    border: '1px solid var(--light-black)',
+                    backgroundColor: 'var(--dark-pink)',
+                    color: 'white'
+                  }}
+                >
+                  Learn more
+                </Button>
+              </WavyLink>
             </CardContent>
           </Card>
           <Card id="enactus" hovered={hover === 'enactus' ? true : false} onMouseOver={handleCardHover} onMouseLeave={handleCardHover}>
@@ -76,9 +82,21 @@ const Portfolio = () => {
               <CardDescription>
                 Full-Stack Developer For Enactus
               </CardDescription>
-              <Button endIcon={<ArrowForwardIcon />} sx={{ position: 'relative', border: '1px solid var(--light-black)', backgroundColor: 'var(--dark-pink)', color: 'white' }}>
-                <WavyLink to='/enactus' color="var(--pink)">Learn more</WavyLink>
-              </Button>
+              <WavyLink to='/enactus' color="var(--pink)">
+                <Button 
+                  endIcon={<ArrowForwardIcon style={{ width: 'calc(5px + 1vw)', height: 'calc(5px + 2vh)' }}/>}
+                  sx={{
+                    width: 'calc(50px + 7vw)',
+                    height: 'calc(20px + 4vh)',
+                    fontSize: 'calc(4px + 0.5vw)',
+                    border: '1px solid var(--light-black)',
+                    backgroundColor: 'var(--dark-pink)',
+                    color: 'white'
+                  }}
+                >
+                  Learn more
+                </Button>
+              </WavyLink>
             </CardContent>
           </Card>
         </>
@@ -93,9 +111,21 @@ const Portfolio = () => {
               <CardDescription>
                 Full-Stack Developer For Galeneo
               </CardDescription>
-              <Button endIcon={<ArrowForwardIcon />} sx={{ position: 'relative', border: '1px solid var(--light-black)', backgroundColor: 'var(--dark-pink)', color: 'white' }}>
-                <WavyLink to='/galeneo' color="var(--pink)">Learn more</WavyLink>
-              </Button>
+              <WavyLink to='/galeneo' color="var(--pink)">
+                <Button 
+                  endIcon={<ArrowForwardIcon style={{ width: 'calc(5px + 1vw)', height: 'calc(5px + 2vh)' }}/>}
+                  sx={{
+                    width: 'calc(50px + 7vw)',
+                    height: 'calc(20px + 4vh)',
+                    fontSize: 'calc(4px + 0.5vw)',
+                    border: '1px solid var(--light-black)',
+                    backgroundColor: 'var(--dark-pink)',
+                    color: 'white'
+                  }}
+                >
+                  Learn more
+                </Button>
+              </WavyLink>
             </CardContent>
           </Card>
           <Card id="enactus" hovered={hover === 'enactus' ? true : false} onMouseOver={handleCardHover} onMouseLeave={handleCardHover}>
@@ -104,9 +134,21 @@ const Portfolio = () => {
               <CardDescription>
                 Full-Stack Developer For Enactus
               </CardDescription>
-              <Button endIcon={<ArrowForwardIcon />} sx={{ position: 'relative', border: '1px solid var(--light-black)', backgroundColor: 'var(--dark-pink)', color: 'white' }}>
-                <WavyLink to='/enactus' color="var(--pink)">Learn more</WavyLink>
-              </Button>
+              <WavyLink to='/enactus' color="var(--pink)">
+                <Button 
+                  endIcon={<ArrowForwardIcon style={{ width: 'calc(5px + 1vw)', height: 'calc(5px + 2vh)' }}/>}
+                  sx={{
+                    width: 'calc(50px + 7vw)',
+                    height: 'calc(20px + 4vh)',
+                    fontSize: 'calc(4px + 0.5vw)',
+                    border: '1px solid var(--light-black)',
+                    backgroundColor: 'var(--dark-pink)',
+                    color: 'white'
+                  }}
+                >
+                  Learn more
+                </Button>
+              </WavyLink>
             </CardContent>
           </Card>
         </>
@@ -121,9 +163,21 @@ const Portfolio = () => {
               <CardDescription>
                 Teaching assistant and ITPI Full-Stack developer
               </CardDescription>
-              <Button endIcon={<ArrowForwardIcon />} sx={{ position: 'relative', border: '1px solid var(--light-black)', backgroundColor: 'var(--dark-pink)', color: 'white' }}>
-                <WavyLink to='/lancaster' color="var(--pink)">Learn more</WavyLink>
-              </Button>
+              <WavyLink to='/lancaster' color="var(--pink)">
+                <Button 
+                  endIcon={<ArrowForwardIcon style={{ width: 'calc(5px + 1vw)', height: 'calc(5px + 2vh)' }}/>}
+                  sx={{
+                    width: 'calc(50px + 7vw)',
+                    height: 'calc(20px + 4vh)',
+                    fontSize: 'calc(4px + 0.5vw)',
+                    border: '1px solid var(--light-black)',
+                    backgroundColor: 'var(--dark-pink)',
+                    color: 'white'
+                  }}
+                >
+                  Learn more
+                </Button>
+              </WavyLink>
             </CardContent>
           </Card>
           <Card id="enactus" hovered={hover === 'enactus' ? true : false} onMouseOver={handleCardHover} onMouseLeave={handleCardHover}>
@@ -132,9 +186,21 @@ const Portfolio = () => {
               <CardDescription>
                 Full-Stack Developer For Enactus
               </CardDescription>
-              <Button endIcon={<ArrowForwardIcon />} sx={{ position: 'relative', border: '1px solid var(--light-black)', backgroundColor: 'var(--dark-pink)', color: 'white' }}>
-                <WavyLink to='/enactus' color="var(--pink)">Learn more</WavyLink>
-              </Button>
+              <WavyLink to='/enactus' color="var(--pink)">
+                <Button 
+                  endIcon={<ArrowForwardIcon style={{ width: 'calc(5px + 1vw)', height: 'calc(5px + 2vh)' }}/>}
+                  sx={{
+                    width: 'calc(50px + 7vw)',
+                    height: 'calc(20px + 4vh)',
+                    fontSize: 'calc(4px + 0.5vw)',
+                    border: '1px solid var(--light-black)',
+                    backgroundColor: 'var(--dark-pink)',
+                    color: 'white'
+                  }}
+                >
+                  Learn more
+                </Button>
+              </WavyLink>
             </CardContent>
           </Card>
           <Card id="galeneo" hovered={hover === 'galeneo' ? true : false} onMouseOver={handleCardHover} onMouseLeave={handleCardHover}>
@@ -143,17 +209,27 @@ const Portfolio = () => {
               <CardDescription>
                 Full-Stack Developer For Galeneo
               </CardDescription>
-              <Button endIcon={<ArrowForwardIcon />} sx={{ position: 'relative', border: '1px solid var(--light-black)', backgroundColor: 'var(--dark-pink)', color: 'white' }}>
-                <WavyLink to='/galeneo' color="var(--pink)">Learn more</WavyLink>
-              </Button>
+              <WavyLink to='/galeneo' color="var(--pink)">
+                <Button 
+                  endIcon={<ArrowForwardIcon style={{ width: 'calc(5px + 1vw)', height: 'calc(5px + 2vh)' }}/>}
+                  sx={{
+                    width: 'calc(50px + 7vw)',
+                    height: 'calc(20px + 4vh)',
+                    fontSize: 'calc(4px + 0.5vw)',
+                    border: '1px solid var(--light-black)',
+                    backgroundColor: 'var(--dark-pink)',
+                    color: 'white'
+                  }}
+                >
+                  Learn more
+                </Button>
+              </WavyLink>
             </CardContent>
           </Card>
         </>
       )
     }
   }
-  // onMouseLeave={hover === 'lancaster' ? handleCardHover : () => {}}
-// onMouseLeave={hover === 'lancaster' ? handleCardHover : () => {}}
 
   return (
     <Section id="portfolio">
@@ -180,27 +256,22 @@ const PortfolioContent = styled.div`
   width: 100%;
   display: flex;
   flex-direction: column;
-  flex-wrap: wrap;
   text-align: center;
   justify-content: center;
   align-items: center;
   background-image: linear-gradient(var(--light-blue), var(--pink), var(--purple));
-  overflow: hidden;
-  margin-top: 7vh;
+  overflow-y: hidden;
 `;
 
 const Title = styled.h1`
   position: relative;
   border-bottom: 2px solid var(--light-black);
-  // margin-bottom: 20vh;
-  // z-index: 3000;
 `;
 
 const ButtonGroup = styled.div`
   position: relative;
   display: flex;
   flex-direction: row;
-  flex-wrap: wrap;
   text-align: center;
   * {
     margin: 10px 10px;
@@ -218,31 +289,35 @@ const FilterButton = styled.button <{ selected?: boolean}>`
 `;
 
 const CardGroup = styled.div`
+  width: 70%;
   position: relative;
   margin: 0 auto;
   margin-top: 20px;
   display: flex;
   flex-direction: row;
-  flex-wrap: wrap;
   text-align: center;
   justify-content: center;
   align-items: center;
+  box-shadow: 5px 5px 20px rgba(0,0,0,0.7);
 `;
 
 const CardContent = styled.div`
   display: flex;
   flex-direction: column;
-  flex-wrap: wrap;
   text-align: center;
   justify-content: center;
   align-items: center;
+  width: 100%;
   height: 100%;
   background: var(--light-grey);
+  border: 1px solid black;
 `;
 
 const CardDescription = styled.div`
+  height: 50%;
+  width: 50%;
+  font-size: calc(5px + 1vw);
   position: relative;
-  margin-bottom: 100px;
 `;
 
 const CardImage = styled.img`
@@ -250,16 +325,15 @@ const CardImage = styled.img`
   height: 100%;
   background: var(--white);
   object-fit: contain;
-  padding: 10px 10px;
+  padding: 25px 25px;
 `;
 
 const Card = styled.div <{hovered?: boolean}>` 
-  width: 50vh;
+  // width: 50vh;
+  width: 50%;
   height: 50vh;
   text-align: center;
   vertical-align: middle;
-  border: 1px solid black;
-  // line-height: 23.3vh;
 
   ${props => props.hovered ? 'cursor: pointer;' : 'cursor: auto;'}
 

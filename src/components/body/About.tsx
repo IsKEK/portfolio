@@ -1,10 +1,18 @@
-import React from 'react'
+import React, { useEffect, useRef } from 'react'
 import { Section } from '../shared/Section'
-import Navbar from '../Navbar';
 import styled, { keyframes } from 'styled-components';
 import profileImage from '../../img/me.png';
+import BoltIcon from '@mui/icons-material/Bolt';
+import LightbulbIcon from '@mui/icons-material/Lightbulb';
+import Diversity3Icon from '@mui/icons-material/Diversity3';
 
 const About = () => {
+  const bottomRef = useRef<null | HTMLDivElement>(null); 
+
+  useEffect(() => {
+    bottomRef.current?.scrollIntoView({behavior: 'smooth', block: 'center'});
+  }, []);
+  
   return (
     <Section id='about'>
       <AboutContent>
@@ -15,16 +23,44 @@ const About = () => {
             I am a Full-Stack developer from Almaty, Kazakhstan.<br/>
             It is my passion to create innovative software that benefits the society! 
           </Description>
-          <Qualities>
+          <div>
             <h3>I am:</h3>
             <QualitiesList>
-              <li>Responsible</li>
-              <li>Cool</li>
+              <li>
+                <Quality>
+                  <QualityTitle>
+                    <LightbulbIcon /> Innovative
+                  </QualityTitle>
+                  <QualityDesc>
+                    Bringing up new ideas is very important to me. Showing creativity
+                  </QualityDesc>
+                </Quality>
+              </li>
+              <li>
+                <Quality>
+                  <QualityTitle>
+                    <Diversity3Icon /> A Team Player
+                  </QualityTitle>
+                  <QualityDesc>
+
+                  </QualityDesc>
+                </Quality>
+              </li>
+              <li>
+                <Quality>
+                  <QualityTitle>
+                    <BoltIcon /> A Fast learner
+                  </QualityTitle>
+                  <QualityDesc>
+
+                  </QualityDesc>
+                </Quality>
+              </li>
             </QualitiesList>
-          </Qualities>
+          </div>
         </AboutMe>
         <Skills>
-          <h1 style={{color: "var(--light-black)"}}>MY SKILLS</h1>
+          <h1 style={{color: "var(--white)"}}>MY SKILLS</h1>
           <SkillBar>
             <SkillTitle><span>HTML</span></SkillTitle>
             <ProgressLine className='html'><BarContent></BarContent></ProgressLine>
@@ -66,6 +102,7 @@ const About = () => {
             <ProgressLine className='aws'><BarContent></BarContent></ProgressLine>
           </SkillBar>
         </Skills>
+        <div ref={bottomRef} />
       </AboutContent>
     </Section>
   )
@@ -103,13 +140,8 @@ const AboutContent = styled.div`
 
 const Title = styled.h1`
   position: relative;
-  // display: block;
   border-bottom: 2px solid var(--light-black);
-  width: 8%;
-  margin-top: 40px;
-  // text-align: center;
-  // margin-left: 204px;
-  // z-index: 3000;
+  margin-top: 60px;
 `;
 
 const AboutMe = styled.div`
@@ -130,12 +162,41 @@ const Description = styled.div`
   padding-top: 10px;
 `;
 
-const Qualities = styled.div`
-
+const QualitiesList = styled.ul`
+  margin-top: 5px;
+  list-style-type: none;
+  li {
+    display: inline-block;
+    margin: 0 10px;
+  }
 `;
 
-const QualitiesList = styled.ul`
-  list-style-type: none;
+const Quality = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  width: 20vh;
+  height: 20vh;
+  border: 1px solid black;
+  border-radius: 50%;
+  background-color: var(--dark-pink);
+`;
+
+const QualityTitle = styled.span`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  svg {
+    margin-botton: 1px;
+  }
+`;
+
+const QualityDesc = styled.div`
+
 `;
 
 const Skills = styled.div`
@@ -143,12 +204,10 @@ const Skills = styled.div`
   margin: 25px 0px;
   padding: 10px 50px;
   width: 80%;
-  background: var(--white);
+  background: var(--light-black);
   box-shadow: 5px 5px 20px rgba(0,0,0,0.7);
   border-radius: 10px;
-  border: 4px 4px black;
   height: fit-content;
-  // place-items: center;
 
   .html span {
     width: 84%;
@@ -239,9 +298,10 @@ const SkillBar = styled.div`
 `;
 
 const SkillTitle = styled.div`
-  // margin-bottom: 1px;
+  margin-bottom: 1px;
   
   span {
+    color: var(--white);
     font-weight: 500;
     font-size: 17px;
     opacity: 0;
@@ -252,12 +312,11 @@ const SkillTitle = styled.div`
 const ProgressLine = styled.div`
   height: 5px;
   width: 100%;
-  background: lightgrey;
+  background: var(--light-grey);
   position: relative;
   transform: scaleX(0);
   transform-origin: left;
   border-radius: 10px;
-  box-shadow: inset 0 1px 1px rgba(0,0,0,0.05), 0 1px rgba(255,255,255,0.8);
   animation: ${barAnimation} 1s cubic-bezier(1,0,0.5,1) forwards;
 `;
 
@@ -282,7 +341,7 @@ const BarContent = styled.span`
     border: 7px solid transparent;
     border-bottom-width: 0px;
     border-right-width: 0px;
-    border-top-color: #000;
+    border-top-color: var(--light-grey);
     animation: ${textAnimation} 0.5s 1.5s linear forwards;
   }
 
@@ -291,8 +350,8 @@ const BarContent = styled.span`
     top: -28px;
     right: 0;
     font-weight: 500;
-    background: #000;
-    color: #fff;
+    background: var(--light-grey);
+    color: var(--light-black);
     opacity: 0;
     padding: 1px 8px;
     font-size: 12px;

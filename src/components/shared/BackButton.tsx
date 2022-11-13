@@ -10,12 +10,14 @@ interface IBackButtonProps {
 
 const BackButton = (props: IBackButtonProps) => {
   return (
-    <ContainerOutside
-    sx={{ position: 'fixed', top: '10vh', left: '50px', height: '7vh', width: '20vh', fontSize: '1px', color: 'var(--light-black)', ':hover': {backgroundColor: `${props.color}`} }}
-      startIcon={<ArrowBackIcon/>}
-    >
-      <WavyLink to='/portfolio' color={props.color}><span style={{fontSize: '1.8vh', display: 'inline-block'}}>Back to portfolio</span></WavyLink>
-    </ContainerOutside>
+    <WavyLink to='/portfolio' color={props.color}>
+      <ContainerOutside
+        sx={{ position: 'fixed', top: '10vh', left: '50px', height: '7vh', width: '25vh', fontSize: '1.5vh', display: 'flex', color: 'var(--light-black)', ':hover': {backgroundColor: `${props.color}`} }}
+        startIcon={<ArrowBackIcon style={{width: '2.5vh', height: '2vh', display: 'flex'}}/>}
+      >
+        <b>Back to portfolio</b>
+      </ContainerOutside>
+    </WavyLink>
   )
 }
 

@@ -1,6 +1,5 @@
 import { AppBar, Toolbar, Container, Typography, Box, IconButton, Menu, MenuItem, Button, Tooltip } from '@mui/material'
 import MenuIcon from '@mui/icons-material/Menu';
-import AdbIcon from '@mui/icons-material/Adb';
 import React, { useState, MouseEvent } from 'react';
 import { WavyLink } from 'react-wavy-transitions';
 
@@ -20,23 +19,6 @@ function Navbar() {
     <AppBar position="fixed" sx={{ backgroundColor: 'var(--light-black)' }}>
       <Container maxWidth="xl">
         <Toolbar disableGutters>
-          {/* <AdbIcon sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 }} /> */}
-          {/* <Typography
-            variant="h6"
-            noWrap
-            sx={{
-              mr: 2,
-              display: { xs: 'none', md: 'flex' },
-              fontFamily: 'monospace',
-              fontWeight: 700,
-              letterSpacing: '.3rem',
-              color: 'inherit',
-              textDecoration: 'none',
-            }}
-          >
-            <WavyLink to="/">Home</WavyLink>
-          </Typography> */}
-
           <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
             <IconButton
               size="large"
@@ -63,54 +45,45 @@ function Navbar() {
               open={Boolean(anchorElNav)}
               onClose={handleCloseNavMenu}
               sx={{
-                display: { xs: 'block', md: 'none' },
+                display: 'flex',
+                flexDirection: 'column',
+                width: '120px',
               }}
             >
-              <MenuItem key="home" onClick={handleCloseNavMenu}>
-                  {/* <Typography textAlign="center">"home"</Typography> */}
-                  <WavyLink to={`/`} color="var(--pink)">Home</WavyLink>
+              <WavyLink to={`/`} color="var(--pink)">
+                <MenuItem key="home" onClick={handleCloseNavMenu} style={{ width: '120px' }}>
+                  <Typography textAlign="center">Home</Typography>
                 </MenuItem>
+              </WavyLink>
               {sections.map((section) => (
-                <MenuItem key={section} onClick={handleCloseNavMenu}>
-                  {/* <Typography textAlign="center">{section}</Typography> */}
-                  <WavyLink to={`/${section.toLowerCase()}`} color="var(--pink)">{section}</WavyLink>
-                </MenuItem>
+                <WavyLink to={`/${section.toLowerCase()}`} color="var(--pink)">
+                  <MenuItem key={section} onClick={handleCloseNavMenu} style={{ width: '120px' }}>
+                    <Typography textAlign="center">{section}</Typography>
+                  </MenuItem>
+                </WavyLink>
               ))}
             </Menu>
           </Box>
-          {/* <AdbIcon sx={{ display: { xs: 'flex', md: 'none' }, mr: 1 }} /> */}
-          {/* <Typography
-            variant="h5"
-            noWrap
-            sx={{
-              mr: 2,
-              display: { xs: 'flex', md: 'none' },
-              flexGrow: 1,
-              fontFamily: 'monospace',
-              fontWeight: 700,
-              letterSpacing: '.3rem',
-              color: 'inherit',
-              textDecoration: 'none',
-            }}
-          >
-            <WavyLink to="/">Home</WavyLink>
-          </Typography> */}
           <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
+            <WavyLink to={`/`} color="var(--pink)">
               <Button
                 key="home"
                 onClick={handleCloseNavMenu}
-                sx={{ my: 2, color: 'white', display: 'block' }}
+                sx={{ my: 2, color: 'white', display: 'block', ':hover': {backgroundColor: 'var(--grey)'} }}
               >
-                <WavyLink to={`/`} color="var(--pink)">Home</WavyLink>
+                Home
               </Button>
+            </WavyLink>
             {sections.map((section) => (
-              <Button
+              <WavyLink to={`/${section.toLowerCase()}`} color="var(--pink)">
+                <Button
                 key={section}
                 onClick={handleCloseNavMenu}
-                sx={{ my: 2, color: 'white', display: 'block' }}
-              >
-                <WavyLink to={`/${section.toLowerCase()}`} color="var(--pink)">{section}</WavyLink>
-              </Button>
+                sx={{ my: 2, color: 'white', display: 'block', ':hover': {backgroundColor: 'var(--grey)'} }}
+                >
+                  {section}
+                </Button>
+              </WavyLink>
             ))}
           </Box>
         </Toolbar>

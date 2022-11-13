@@ -5,8 +5,6 @@ interface ISectionProps {
     id: string;
     title?: string;
     children: ReactNode;
-    // backgroundColor: string;
-    // paddingTop: string;
 }
 
 function Section(props: ISectionProps) {
@@ -18,25 +16,13 @@ function Section(props: ISectionProps) {
 }
 
 const AppSection = styled.section`
-  width: 100%; 
+  width: 100vw; 
   height: 100vh;
   align-content: center;
   display: flex;
   flex-direction: column;
   justify-content: center;
   overflow-y: auto;
-`;
-
-// const SectionContent = styled.div <{ backgroundColor: string, paddingTop: string }>`
-//   height: 100%;
-//   width: 100%;
-//   text-align: center; 
-//   padding-top: ${props => props.paddingTop ? `${props.paddingTop}` : '0px'};
-//   background-color: ${props => props.backgroundColor ? `${props.backgroundColor}` : 'white'};
-// `;
-
-const Title = styled.div`
-    display: inline;
 `;
 
 export default { Section };
