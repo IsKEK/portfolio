@@ -1,6 +1,6 @@
 :root {
-  --dark-purple: #160040;
-  --purple: #b27ed6;
+  --dark-purple: #42275a;
+  --purple: #734b6d;
   --dark-pink: #c62d70;
   --pink: #e657ab;
   --light-black: #1f1f1f;
@@ -10,6 +10,10 @@
   --light-blue: #73bfe2;
   --orange: #fd9149;
   --dark-orange: #dd752f;
+  --some-pink: #dd5e89;
+  --beige: #f7bb97;
+  --light-purple: #a23982;
+  --burgundy: #1f1013;
 }
 
 *{

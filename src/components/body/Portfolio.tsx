@@ -259,7 +259,7 @@ const PortfolioContent = styled.div`
   text-align: center;
   justify-content: center;
   align-items: center;
-  background-image: linear-gradient(var(--light-blue), var(--pink), var(--purple));
+  background: radial-gradient(var(--light-grey), var(--grey));
   overflow-y: hidden;
 `;
 

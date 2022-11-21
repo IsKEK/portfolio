@@ -1,4 +1,4 @@
-import React, { useRef } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import styled from 'styled-components';
 import { Section } from '../shared/Section';
 import { AnimatedSocialIcon } from 'react-animated-social-icons';
@@ -8,15 +8,59 @@ import SendIcon from '@mui/icons-material/Send';
 
 const Contact = () => {
   const form = useRef();
+  const [hint, setHint] = useState('');
+  const [color, setColor] = useState('green');
+
+  useEffect(() => {
+
+  }, [hint]);
+
+  const displayHint = () => {
+    if (hint === '')
+    {
+      return null;
+    }
+    return (
+      <span style={{ color: `${color}` }}>
+        {hint}
+      </span>
+    )
+  }
 
   const sendEmail = (e: any) => {
     e.preventDefault();
+    const values = e.target;
+    for (let i = 0; i < values.length-1; i++) {
+      if (values[i].value === '' || values[i].value === null)
+      {
+        setColor('red');
+        switch (values[i].placeholder) {
+          case 'Name...':
+            setHint('Please input your name');
+            break;
+          case 'Email...':
+            setHint('Please input your email');
+            break;
+          case 'Type a message...':
+            setHint('Message cannot be empty');
+            break;
+          default:
+            setHint('Form cannot be empty');
+            break;
+        }
+        return;
+      }
+    }
 
     emailjs.sendForm('service_emw509c', 'template_86u65c3', form.current as any, 'I_civ3jAO0zM_geSy')
       .then((result) => {
-          console.log(result.text);
+        setColor('green');
+        console.log(result);
+        setHint('Your message was successfully sent. Thank you!');
       }, (error) => {
-          console.log(error.text);
+        setColor('red');
+        console.log(error);
+        setHint('There was an error sending your email. Please try again later or contact me via my social media below.');
       });
   };
 
@@ -32,12 +76,15 @@ const Contact = () => {
             <FormInput type="email" placeholder="Email..." name="email" />
             <FormLabel>Message</FormLabel>
             <FormTextArea rows={4} cols={50} placeholder="Type a message..." name="message" />
+            <FormHint>
+              {displayHint()}
+            </FormHint>
             <Button 
               endIcon={<SendIcon sx={{ display: 'flex', position: 'relative', width: 'calc(5px + 0.6vw)', height: 'calc(5px + 0.6vw)'}} />}
               type="submit"
               form="email-form"
-              sx={{ position: 'relative', marginTop: '30px', height: 'calc(20px + 2vw)', width: 'calc(70px + 5vw)', fontSize: 'calc(4px + 0.7vw)', border: '1px solid var(--light-grey)', backgroundColor: 'var(--dark-pink)', color: 'white' }}
-              >
+              sx={{ position: 'relative', marginTop: '20px', height: 'calc(20px + 2vw)', width: 'calc(70px + 5vw)', fontSize: 'calc(4px + 0.7vw)', border: '1px solid var(--light-grey)', backgroundColor: 'var(--dark-pink)', color: 'white' }}
+            >
               Send email
             </Button>
           </EmailForm>
@@ -96,7 +143,7 @@ const ContactContent = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background-image: linear-gradient(var(--light-blue), var(--pink), var(--purple));
+  background: radial-gradient(var(--light-grey), var(--grey));
   overflow-y: auto;
 `;
 
@@ -169,6 +216,10 @@ const FormTextArea = styled.textarea`
   :-ms-input-placeholder {
     color: var(--grey);
   }
+`;
+
+const FormHint = styled.div`
+  font-size: calc(5px + 0.8vw);
 `;
 
 const SocialMediaList = styled.ul`

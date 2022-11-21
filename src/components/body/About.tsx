@@ -1,58 +1,91 @@
-import React, { useEffect, useRef } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import { Section } from '../shared/Section'
-import styled, { keyframes } from 'styled-components';
+import styled, { css, keyframes } from 'styled-components';
 import profileImage from '../../img/me.png';
 import BoltIcon from '@mui/icons-material/Bolt';
 import LightbulbIcon from '@mui/icons-material/Lightbulb';
 import Diversity3Icon from '@mui/icons-material/Diversity3';
+import sizes from '../../sizes.json';
 
 const About = () => {
-  const bottomRef = useRef<null | HTMLDivElement>(null); 
+  let bottomRef = useRef<null | HTMLDivElement>(null);
+  const [animation, setAnimation] = useState(false);
+
+  const getWindowDimensions = () => {
+    const { innerWidth: width, innerHeight: height } = window;
+    return {
+      width,
+      height
+    };
+  }
+
+  const [windowDimensions, setWindowDimensions] = useState(getWindowDimensions());
 
   useEffect(() => {
-    bottomRef.current?.scrollIntoView({behavior: 'smooth', block: 'center'});
+    function handleResize() {
+      setWindowDimensions(getWindowDimensions());
+    }
+
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
   }, []);
+
+  const animate = () => {
+    console.log(bottomRef.current!.getBoundingClientRect().top);
+    if (bottomRef.current!.getBoundingClientRect().top < windowDimensions.height/1.2) setAnimation(true);
+  }
   
   return (
     <Section id='about'>
-      <AboutContent>
+      <AboutContent onScroll={animate}>
         <Title>ABOUT ME</Title>
         <AboutMe>  
           <ProfileImage src={profileImage} alt="photo of me" />
           <Description>
             I am a Full-Stack developer from Almaty, Kazakhstan.<br/>
-            It is my passion to create innovative software that benefits the society! 
+            I have graduated from <DescriptionLink href="https://www.lancaster.ac.uk/" target="_blank">Lancaster University</DescriptionLink> with first class honours in BSc (Hons) Software Engineering course.<br/>
+            Currently working as a Full-Stack developer for <DescriptionLink href="https://www.galeneo.com/" target="_blank">Galeneo</DescriptionLink>.<br/>
+            It is my passion to create innovative software that benefits the society!<br/>
           </Description>
           <div>
-            <h3>I am:</h3>
+            <h2>I am:</h2>
             <QualitiesList>
               <li>
                 <Quality>
                   <QualityTitle>
-                    <LightbulbIcon /> Innovative
+                  <QualityIcon>
+                    <LightbulbIcon />
+                  </QualityIcon>
+                    Innovative
                   </QualityTitle>
                   <QualityDesc>
-                    Bringing up new ideas is very important to me. Showing creativity
+                    Bringing up new ideas and utilizing my creativity is a priority for me.
                   </QualityDesc>
                 </Quality>
               </li>
               <li>
                 <Quality>
                   <QualityTitle>
-                    <Diversity3Icon /> A Team Player
+                  <QualityIcon>
+                    <Diversity3Icon />
+                  </QualityIcon>
+                    A Team Player
                   </QualityTitle>
                   <QualityDesc>
-
+                    Working and exchanging knowledge in a team is very important to me and my development.
                   </QualityDesc>
                 </Quality>
               </li>
               <li>
                 <Quality>
                   <QualityTitle>
-                    <BoltIcon /> A Fast learner
+                  <QualityIcon>
+                    <BoltIcon />
+                  </QualityIcon>
+                    A Fast learner
                   </QualityTitle>
                   <QualityDesc>
-
+                    Learning new technologies rapidly in an ever-changing world is my strength.
                   </QualityDesc>
                 </Quality>
               </li>
@@ -62,44 +95,44 @@ const About = () => {
         <Skills>
           <h1 style={{color: "var(--white)"}}>MY SKILLS</h1>
           <SkillBar>
-            <SkillTitle><span>HTML</span></SkillTitle>
-            <ProgressLine className='html'><BarContent></BarContent></ProgressLine>
+            <SkillTitle animation={animation}><span>HTML</span></SkillTitle>
+            <ProgressLine animation={animation} className='html'><BarContent animation={animation}></BarContent></ProgressLine>
           </SkillBar>
           <SkillBar>
-            <SkillTitle><span>CSS</span></SkillTitle>
-            <ProgressLine className='css'><BarContent></BarContent></ProgressLine>
+            <SkillTitle animation={animation}><span>CSS</span></SkillTitle>
+            <ProgressLine animation={animation} className='css'><BarContent animation={animation}></BarContent></ProgressLine>
           </SkillBar>
           <SkillBar>
-            <SkillTitle><span>JavaScript</span></SkillTitle>
-            <ProgressLine className='js'><BarContent></BarContent></ProgressLine>
+            <SkillTitle animation={animation}><span>JavaScript</span></SkillTitle>
+            <ProgressLine animation={animation} className='js'><BarContent animation={animation}></BarContent></ProgressLine>
           </SkillBar>
           <SkillBar>
-            <SkillTitle><span>React.js</span></SkillTitle>
-            <ProgressLine className='react'><BarContent></BarContent></ProgressLine>
+            <SkillTitle animation={animation}><span>React.js</span></SkillTitle>
+            <ProgressLine animation={animation} className='react'><BarContent animation={animation}></BarContent></ProgressLine>
           </SkillBar>
           <SkillBar>
-            <SkillTitle><span>C#</span></SkillTitle>
-            <ProgressLine className='cs'><BarContent></BarContent></ProgressLine>
+            <SkillTitle animation={animation}><span>C#</span></SkillTitle>
+            <ProgressLine animation={animation} className='cs'><BarContent animation={animation}></BarContent></ProgressLine>
           </SkillBar>
           <SkillBar>
-            <SkillTitle><span>Java</span></SkillTitle>
-            <ProgressLine className='java'><BarContent></BarContent></ProgressLine>
+            <SkillTitle animation={animation}><span>Java</span></SkillTitle>
+            <ProgressLine animation={animation} className='java'><BarContent animation={animation}></BarContent></ProgressLine>
           </SkillBar>
           <SkillBar>
-            <SkillTitle><span>Python</span></SkillTitle>
-            <ProgressLine className='python'><BarContent></BarContent></ProgressLine>
+            <SkillTitle animation={animation}><span>Python</span></SkillTitle>
+            <ProgressLine animation={animation} className='python'><BarContent animation={animation}></BarContent></ProgressLine>
           </SkillBar>
           <SkillBar>
-            <SkillTitle><span>SQL</span></SkillTitle>
-            <ProgressLine className='sql'><BarContent></BarContent></ProgressLine>
+            <SkillTitle animation={animation}><span>SQL</span></SkillTitle>
+            <ProgressLine animation={animation} className='sql'><BarContent animation={animation}></BarContent></ProgressLine>
           </SkillBar>
           <SkillBar>
-            <SkillTitle><span>MongoDB</span></SkillTitle>
-            <ProgressLine className='mongo'><BarContent></BarContent></ProgressLine>
+            <SkillTitle animation={animation}><span>MongoDB</span></SkillTitle>
+            <ProgressLine animation={animation} className='mongo'><BarContent animation={animation}></BarContent></ProgressLine>
           </SkillBar>
           <SkillBar>
-            <SkillTitle><span>AWS</span></SkillTitle>
-            <ProgressLine className='aws'><BarContent></BarContent></ProgressLine>
+            <SkillTitle animation={animation}><span>AWS</span></SkillTitle>
+            <ProgressLine animation={animation} className='aws'><BarContent animation={animation}></BarContent></ProgressLine>
           </SkillBar>
         </Skills>
         <div ref={bottomRef} />
@@ -129,13 +162,10 @@ const AboutContent = styled.div`
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
-  background-image: linear-gradient(var(--light-blue), var(--pink), var(--purple));
+  background: radial-gradient(var(--light-grey), var(--grey));
   overflow-y: auto;
   overflow-x: hidden;
   margin-top: 5vh;
-  // & > * {
-  //   margin: 0 25px;
-  // }
 `;
 
 const Title = styled.h1`
@@ -146,28 +176,36 @@ const Title = styled.h1`
 
 const AboutMe = styled.div`
   position: relative;
-  // margin-top: 100px;
   width: 100%;
 `;
 
 const ProfileImage = styled.img`
-  width: 200px;
-  height: 200px;
+  width: 250px;
+  height: 250px;
   padding-top: 20px;
   object-fit: contain;
 `;
 
 const Description = styled.div`
   font-size: large;
-  padding-top: 10px;
+  padding: 5px 20px;
+  margin-bottom: 10px;
+`;
+
+const DescriptionLink = styled.a`
+  color: var(--dark-pink);
+  text-decoration: none;
+  :hover {
+    text-decoration: underline;
+  }
 `;
 
 const QualitiesList = styled.ul`
-  margin-top: 5px;
+  margin-top: 10px;
   list-style-type: none;
   li {
     display: inline-block;
-    margin: 0 10px;
+    margin: 10px 50px;
   }
 `;
 
@@ -177,8 +215,23 @@ const Quality = styled.div`
   justify-content: center;
   align-items: center;
   text-align: center;
-  width: 20vh;
-  height: 20vh;
+  width: calc(100px + 2vw);
+
+  @media ${sizes.laptop} {
+    height: calc(100px + 2vh);
+  }
+
+  @media ${sizes.mobileS} {
+    height: 20vh;
+  }
+`;
+
+const QualityIcon = styled.span`
+  width: 40px;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   border: 1px solid black;
   border-radius: 50%;
   background-color: var(--dark-pink);
@@ -190,13 +243,16 @@ const QualityTitle = styled.span`
   justify-content: center;
   align-items: center;
   text-align: center;
+  width: calc(200px + 2vw);
+  font-size: 20px;
+  font-weight: bold;
   svg {
     margin-botton: 1px;
   }
 `;
 
 const QualityDesc = styled.div`
-
+  width: calc(200px + 2vw);
 `;
 
 const Skills = styled.div`
@@ -297,7 +353,7 @@ const SkillBar = styled.div`
   }
 `;
 
-const SkillTitle = styled.div`
+const SkillTitle = styled.div<{animation: boolean}>`
   margin-bottom: 1px;
   
   span {
@@ -305,11 +361,11 @@ const SkillTitle = styled.div`
     font-weight: 500;
     font-size: 17px;
     opacity: 0;
-    animation: ${textAnimation} 0.5s 1s linear forwards;
+    animation: ${props => props.animation ? css`${textAnimation} 0.5s 1s linear forwards` : 'none'};
   }
 `;
 
-const ProgressLine = styled.div`
+const ProgressLine = styled.div<{animation: boolean}>`
   height: 5px;
   width: 100%;
   background: var(--light-grey);
@@ -317,10 +373,10 @@ const ProgressLine = styled.div`
   transform: scaleX(0);
   transform-origin: left;
   border-radius: 10px;
-  animation: ${barAnimation} 1s cubic-bezier(1,0,0.5,1) forwards;
+  animation: ${props => props.animation ? css`${barAnimation} 1s cubic-bezier(1, 0, 0.5, 1) forwards` : 'none'};
 `;
 
-const BarContent = styled.span`
+const BarContent = styled.span<{animation: boolean}>`
   height: 100%;
   position: absolute;
   margin-left: -50%;
@@ -328,7 +384,7 @@ const BarContent = styled.span`
   transform: scaleX(0);
   transform-origin: left;
   background: var(--dark-pink);
-  animation: ${barAnimation} 1s 1s cubic-bezier(1,0,0.5,1) forwards;
+  animation: ${props => props.animation ? css`${barAnimation} 1s 1s cubic-bezier(1, 0, 0.5, 1) forwards` : 'none'};
 
   &:before {
     position: absolute;
@@ -342,7 +398,7 @@ const BarContent = styled.span`
     border-bottom-width: 0px;
     border-right-width: 0px;
     border-top-color: var(--light-grey);
-    animation: ${textAnimation} 0.5s 1.5s linear forwards;
+    animation: ${props => props.animation ? css`${textAnimation} 0.5s 1s linear forwards` : 'none'};
   }
 
   &:after {
@@ -356,7 +412,7 @@ const BarContent = styled.span`
     padding: 1px 8px;
     font-size: 12px;
     border-radius: 3px;
-    animation: ${textAnimation} 0.5s 1.5s linear forwards;
+    animation: ${props => props.animation ? css`${textAnimation} 0.5s 1s linear forwards` : 'none'};
   }
 `;
 
