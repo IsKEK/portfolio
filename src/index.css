@@ -1,19 +1,39 @@
+@import url('https://fonts.googleapis.com/css2?family=Varela&display=swap');
+
 :root {
   --dark-purple: #42275a;
   --purple: #734b6d;
+  --background-purple: #B141C3;
   --dark-pink: #c62d70;
   --pink: #e657ab;
   --light-black: #1f1f1f;
   --white: #fefefe;
   --grey: #939192;
   --light-grey: #d8d8d8;
-  --light-blue: #73bfe2;
+  --blue: #1273e8;
+  --light-blue: #00aeff;
   --orange: #fd9149;
   --dark-orange: #dd752f;
-  --some-pink: #dd5e89;
-  --beige: #f7bb97;
+  --some-pink: #fe0098;
+  --beige: #f13b3b;
   --light-purple: #a23982;
   --burgundy: #1f1013;
+}
+
+@font-face {
+  font-family: 'Varela';
+  src: url('/src/fonts/Varela.ttf') format('truetype');
+  src: local('Varela') format('truetype'), url('https://fonts.googleapis.com/css2?family=Varela&display=swap') format('truetype');
+  font-style: normal;
+  font-weight: 400;
+}
+
+@font-face {
+  font-family: 'VarelaRound';
+  src: url('/src/fonts/VarelaRound.ttf') format('truetype');
+  src: local('VarelaRound') format('truetype'), url('https://fonts.googleapis.com/css2?family=VarelaRound&display=swap') format('truetype');
+  font-style: normal;
+  font-weight: 400;
 }
 
 *{
@@ -24,7 +44,7 @@
 
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, "Tahoma", "Arial", 'Noto', 'Segoe UI', 'Roboto', 'Oxygen',
+  font-family: "VarelaRound", "Arial", 'Noto', 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
   -webkit-font-smoothing: antialiased;

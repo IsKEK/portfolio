@@ -1,7 +1,9 @@
-import React, { useEffect, useRef, useState } from 'react'
-import { Section } from '../shared/Section'
+import React, { useEffect, useRef, useState } from 'react';
+import { Section } from '../shared/Section';
+import useWindowDimensions from '../../functions/window';
 import styled, { css, keyframes } from 'styled-components';
 import profileImage from '../../img/me.png';
+import backgroundImage from '../../img/background.jpg'
 import BoltIcon from '@mui/icons-material/Bolt';
 import LightbulbIcon from '@mui/icons-material/Lightbulb';
 import Diversity3Icon from '@mui/icons-material/Diversity3';
@@ -11,24 +13,7 @@ const About = () => {
   let bottomRef = useRef<null | HTMLDivElement>(null);
   const [animation, setAnimation] = useState(false);
 
-  const getWindowDimensions = () => {
-    const { innerWidth: width, innerHeight: height } = window;
-    return {
-      width,
-      height
-    };
-  }
-
-  const [windowDimensions, setWindowDimensions] = useState(getWindowDimensions());
-
-  useEffect(() => {
-    function handleResize() {
-      setWindowDimensions(getWindowDimensions());
-    }
-
-    window.addEventListener('resize', handleResize);
-    return () => window.removeEventListener('resize', handleResize);
-  }, []);
+  const windowDimensions = useWindowDimensions();
 
   const animate = () => {
     console.log(bottomRef.current!.getBoundingClientRect().top);
@@ -48,15 +33,14 @@ const About = () => {
             It is my passion to create innovative software that benefits the society!<br/>
           </Description>
           <div>
-            <h2>I am:</h2>
             <QualitiesList>
               <li>
                 <Quality>
                   <QualityTitle>
                   <QualityIcon>
-                    <LightbulbIcon />
+                    <LightbulbIcon sx={{ width: '40px', height: '40px' }} />
                   </QualityIcon>
-                    Innovative
+                    INNOVATIVE
                   </QualityTitle>
                   <QualityDesc>
                     Bringing up new ideas and utilizing my creativity is a priority for me.
@@ -67,9 +51,9 @@ const About = () => {
                 <Quality>
                   <QualityTitle>
                   <QualityIcon>
-                    <Diversity3Icon />
+                    <Diversity3Icon sx={{ width: '40px', height: '40px' }} />
                   </QualityIcon>
-                    A Team Player
+                    A TEAM PLAYER
                   </QualityTitle>
                   <QualityDesc>
                     Working and exchanging knowledge in a team is very important to me and my development.
@@ -80,9 +64,9 @@ const About = () => {
                 <Quality>
                   <QualityTitle>
                   <QualityIcon>
-                    <BoltIcon />
+                    <BoltIcon sx={{ width: '40px', height: '40px' }} />
                   </QualityIcon>
-                    A Fast learner
+                    A FAST LEARNER
                   </QualityTitle>
                   <QualityDesc>
                     Learning new technologies rapidly in an ever-changing world is my strength.
@@ -162,16 +146,24 @@ const AboutContent = styled.div`
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
-  background: radial-gradient(var(--light-grey), var(--grey));
+  // background: linear-gradient(var(--background-purple), var(--background-blue));
+  // background-image: url(${backgroundImage});
+  // background-repeat: no-repeat;
+  // background-size: auto;
+  background: radial-gradient(var(--white), var(--light-grey));
+  color: var(--light-black);
+  font-family: VarelaRound, sens-serif !important;
   overflow-y: auto;
   overflow-x: hidden;
   margin-top: 5vh;
 `;
 
-const Title = styled.h1`
+const Title = styled.div`
   position: relative;
-  border-bottom: 2px solid var(--light-black);
+  border-bottom: 1px solid var(--light-black);
   margin-top: 60px;
+  line-height: 31px;
+  font-size: 24px;
 `;
 
 const AboutMe = styled.div`
@@ -187,9 +179,11 @@ const ProfileImage = styled.img`
 `;
 
 const Description = styled.div`
-  font-size: large;
   padding: 5px 20px;
   margin-bottom: 10px;
+  font-size: 20px;
+  line-height: 21px;
+  text-align: center;
 `;
 
 const DescriptionLink = styled.a`
@@ -197,6 +191,7 @@ const DescriptionLink = styled.a`
   text-decoration: none;
   :hover {
     text-decoration: underline;
+    // color: var(--dark-pink);
   }
 `;
 
@@ -232,9 +227,8 @@ const QualityIcon = styled.span`
   display: flex;
   justify-content: center;
   align-items: center;
-  border: 1px solid black;
-  border-radius: 50%;
-  background-color: var(--dark-pink);
+  color: var(--dark-pink);
+  margin-bottom: 2px;
 `;
 
 const QualityTitle = styled.span`
@@ -245,14 +239,15 @@ const QualityTitle = styled.span`
   text-align: center;
   width: calc(200px + 2vw);
   font-size: 20px;
-  font-weight: bold;
-  svg {
-    margin-botton: 1px;
-  }
+  line-height: 26px;
+  margin-bottom: 5px;
 `;
 
 const QualityDesc = styled.div`
   width: calc(200px + 2vw);
+  font-size: 17px;
+  line-height: 21px;
+  text-align: center;
 `;
 
 const Skills = styled.div`
@@ -266,26 +261,26 @@ const Skills = styled.div`
   height: fit-content;
 
   .html span {
-    width: 84%;
+    width: 90%;
 
     &:after {
-      content: "84%";
+      content: "90%";
     }
   }
 
   .css span {
-    width: 92%;
+    width: 80%;
 
     &:after {
-      content: "92%";
+      content: "80%";
     }
   }
 
   .js span {
-    width: 97%;
+    width: 90%;
 
     &:after {
-      content: "97%";
+      content: "90%";
     }
   }
 
@@ -298,18 +293,18 @@ const Skills = styled.div`
   }
 
   .cs span {
-    width: 90%;
+    width: 85%;
     
     &:after {
-      content: "90%";
+      content: "85%";
     }
   }
 
   .java span {
-    width: 75%;
+    width: 70%;
   
     &:after {
-      content: "75%";
+      content: "70%";
     }
   }
 
@@ -322,10 +317,10 @@ const Skills = styled.div`
   }
 
   .aws span {
-    width: 78%;
+    width: 80%;
   
     &:after {
-      content: "78%";
+      content: "80%";
     }
   }
 
@@ -338,10 +333,10 @@ const Skills = styled.div`
   }
 
   .mongo span {
-    width: 75%;
+    width: 70%;
   
     &:after {
-      content: "75%";
+      content: "70%";
     }
   }
 `;
@@ -355,7 +350,8 @@ const SkillBar = styled.div`
 
 const SkillTitle = styled.div<{animation: boolean}>`
   margin-bottom: 1px;
-  
+  text-align: left;
+
   span {
     color: var(--white);
     font-weight: 500;

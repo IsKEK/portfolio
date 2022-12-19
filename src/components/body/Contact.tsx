@@ -5,11 +5,14 @@ import { AnimatedSocialIcon } from 'react-animated-social-icons';
 import emailjs from '@emailjs/browser';
 import { Button } from '@mui/material';
 import SendIcon from '@mui/icons-material/Send';
+import backgroundImage from '../../img/background.jpg'
+import useWindowDimensions from '../../functions/window';
 
 const Contact = () => {
   const form = useRef();
   const [hint, setHint] = useState('');
   const [color, setColor] = useState('green');
+  const { height, width } = useWindowDimensions();
 
   useEffect(() => {
 
@@ -68,7 +71,7 @@ const Contact = () => {
     <Section id="contact">
       <ContactContent>
         <FormContainer>
-          <FormTitle>Send me an email :)</FormTitle>
+          <FormTitle>Email me for any queries :)</FormTitle>
           <EmailForm ref={form as any} onSubmit={sendEmail} id="email-form">
             <FormLabel>Your Name</FormLabel>
             <FormInput type="text" placeholder="Name..." name="from_name" />
@@ -83,7 +86,7 @@ const Contact = () => {
               endIcon={<SendIcon sx={{ display: 'flex', position: 'relative', width: 'calc(5px + 0.6vw)', height: 'calc(5px + 0.6vw)'}} />}
               type="submit"
               form="email-form"
-              sx={{ position: 'relative', marginTop: '20px', height: 'calc(20px + 2vw)', width: 'calc(70px + 5vw)', fontSize: 'calc(4px + 0.7vw)', border: '1px solid var(--light-grey)', backgroundColor: 'var(--dark-pink)', color: 'white' }}
+              sx={{ position: 'relative', marginTop: '20px', height: 'calc(30px + 2vw)', width: 'calc(70px + 5vw)', fontSize: width > height ? 'calc(4px + 0.7vw)' : 'calc(4px + 0.7vh)', border: '1px solid var(--light-grey)', backgroundColor: 'var(--dark-pink)', color: 'white' }}
             >
               Send email
             </Button>
@@ -110,7 +113,7 @@ const Contact = () => {
                 url="https://github.com/IsKEK"
                 animation="float"
                 defaultColor="black"
-                hoverColor="var(--light-grey)"
+                hoverColor="var(--grey)"
                 width="4vh"
                 animationDuration={0.8}
               />
@@ -143,7 +146,10 @@ const ContactContent = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background: radial-gradient(var(--light-grey), var(--grey));
+  // background-image: url(${backgroundImage});
+  // background-repeat: no-repeat;
+  // background-size: auto;
+  background: radial-gradient(var(--white), var(--light-grey));
   overflow-y: auto;
 `;
 
@@ -167,15 +173,15 @@ const EmailForm = styled.form`
 
 const FormTitle = styled.h1`
   color: var(--white);
-  margin-bottom: 1vh;
-  font-size: calc(10px + 1vw);
+  margin-bottom: 3vh;
+  font-size: calc(5px + 1.2vh + 0.7vw);
 `;
 
 const FormLabel = styled.label`
   display: block;
   padding-bottom: 0.5vh;
   font-family: "Tahoma", "Arial";
-  font-size: calc(5px + 0.9vw);
+  font-size: calc(5px + 1vh + 0.5vw);
   color: var(--white);
 `;
 
@@ -186,7 +192,7 @@ const FormInput = styled.input`
   height: 10%;
   padding-left: 20px;
 
-  font-size: 2vh;
+  font-size: calc(5px + 1vh + 0.5vw);
   font-family: "Tahoma", "Arial";
 
   ::placeholder,
@@ -204,7 +210,7 @@ const FormTextArea = styled.textarea`
   height: 25%;
   padding: 10px 20px;
   
-  font-size: 2vh;
+  font-size: calc(5px + 1vh + 0.5vw);
   font-family: "Tahoma", "Arial";
 
   resize: none;
@@ -234,7 +240,7 @@ const SocialMediaListItem = styled.li`
   height: 4vh;
   position: relative;
   list-style: none;
-  margin: 0 3vh;
+  margin: 0 2.5vh;
   cursor: pointer;
 `;
 

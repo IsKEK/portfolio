@@ -4,11 +4,14 @@ import styled, { keyframes } from 'styled-components';
 import { Section } from '../shared/Section';
 import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
 import { WavyLink } from 'react-wavy-transitions';
+import useWindowDimensions from '../../functions/window';
 
 const Home = () => {
+  const { height, width } = useWindowDimensions();
+  
   return (
     <Section id='home'>
-      <HomeContent>
+      <HomeContent width={width} height={height}>
         <HomeText>
             Hello! I am <span style={{ color: 'var(--dark-pink)' }}>Iskak Toltay</span>.
             <br/>
@@ -16,8 +19,8 @@ const Home = () => {
         </HomeText>
         <WavyLink to='/about' color="var(--dark-pink)">
           <Button 
-            sx={{ position: 'relative', height: 'calc(50px + 1vw)', width: 'calc(150px + 3vw)', fontSize: 'calc(12px + 0.2vw)', border: '2px solid rgba(255, 255, 255, 0.3)', color: 'white', ':hover': {backgroundColor: 'var(--dark-pink)'} }}
-            endIcon={<ArrowForwardIcon style={{width: '2.5vh', height: '2vh', minWidth: '20px', minHeight: '20px', display: 'flex'}} />}
+            sx={{ position: 'relative', height: 'calc(50px + 1vw)', width: 'calc(150px + 3vw)', fontFamily: 'VarelaRound, sans-serif', fontSize: 'calc(12px + 0.2vw)', border: '2px solid rgba(255, 255, 255, 0.3)', color: 'white', ':hover': {backgroundColor: 'var(--dark-pink)'} }}
+            endIcon={<ArrowForwardIcon style={{width: '2.5vh', height: '2vh', minWidth: '20px', minHeight: '20px', display: 'flex', marginBottom: '2px' }} />}
           >
             More about me
           </Button>
@@ -63,7 +66,7 @@ const finalFadeAnimation = keyframes`
   100% {opacity: 1;}
 `;
 
-const HomeContent = styled.div`
+const HomeContent = styled.div <{width: number, height: number}>`
   height: 100%;
   width: 100%;
   text-align: center; 
@@ -86,7 +89,7 @@ const HomeContent = styled.div`
     width: 0px;
     opacity: .75;
     background-color: white;
-    box-shadow: var(--grey) 0px 0px 1vw 1.5px;
+    ${props => props.width > props.height ? 'box-shadow: var(--grey) 0px 0px 1vw 1.5px;' : props.width > 500 ? 'box-shadow: var(--grey) 0px 0px 1vw 1px;' : 'box-shadow: var(--grey) 0px 0px 1vw 0.5px;'}
     opacity: 0;
     top: 100vh;
     bottom: 0px;
